@@ -17,9 +17,52 @@
  limitations under the License.
 -->
 
+<<<<<<< HEAD
 <project name="solr" default="usage" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
 	
   <import file="common-build.xml"/>
+=======
+<project name="solr" default="usage" basedir=".">
+  <!-- Initialize property values: allow easy customization via build.properties -->
+  <property file="build.properties" />
+
+  <property name="Name" value="Solr" />
+
+  <tstamp>
+    <format property="year" pattern="yyyy"/>
+    <format property="DSTAMP" pattern="yyyy-MM-dd"/>
+    <format property="TSTAMP" pattern="HH:mm:ss"/>
+    <!-- datetime format that is safe to treat as part of a dotted version -->
+    <format property="dateversion" pattern="yyyy.MM.dd.HH.mm.ss" />
+  </tstamp>
+
+  <!-- Java Version we are compatible with -->
+  <property name="java.compat.version" value="1.5" />
+
+  <!-- Solr Implimentation Version -->
+  <!--
+       This can be any string value that does not include spaces
+       This will be used when creating build artifact file names.
+
+       By default, this should be set to "X.Y.N-dev" where X.Y.N is
+       "1 greater" then the last version released (on this branch).
+    -->
+  <property name="version" value="1.1.1-dev" />
+  
+  <!-- Solr Specification Version -->
+  <!--
+       This will be used in the Manifest file, and therefore must
+       match the pattern "digit+{.digit+}*"
+       
+       By default, this should be set to "X.Y.M.${dateversion}"
+       where X.Y.M is the last version released (on this branch).
+    -->
+  <property name="specversion" value="1.1.${dateversion}" />
+
+  <!-- Incubation Artifact Disclaimer Suffix -->
+  <!-- Once graduated from incubation, find/remove all refs to this prop -->
+  <property name="incubation-suffix" value="-incubating" />
+>>>>>>> apache/branch-1.1
   
   <!-- 3rd party libraries for compilation -->
   <property name="lib" location="lib" />
@@ -658,6 +701,14 @@
       <tarfileset dir="."
         mode="755"
         prefix="${fullnamever}"
+<<<<<<< HEAD
+=======
+        includes="LICENSE.txt NOTICE.txt *.txt *.xml lib/** src/** example/**"
+        excludes="**/data/ **/logs/ **/classes/ **/*.sh **/bin/ src/scripts/" />
+      <tarfileset dir="."
+        mode="755"
+        prefix="${fullnamever}"
+>>>>>>> apache/branch-1.1
         includes="**/*.sh **/bin/ src/scripts/" />
       <tarfileset dir="."
         prefix="${fullnamever}"
@@ -677,11 +728,19 @@
      />
 
     <zip destfile="${dist}/${fullnamever}.zip">
+<<<<<<< HEAD
       <zipfileset dir="${dest}/${fullnamever}"
         prefix="${fullnamever}" 
         excludes="**/*.sh **/bin/ src/scripts/" />
       <zipfileset dir="${dest}/${fullnamever}"
         prefix="${fullnamever}"
+=======
+      <zipfileset dir="${dest}/${fullnamever}" 
+        prefix="${fullnamever}" 
+        excludes="**/*.sh **/bin/ src/scripts/" />
+      <zipfileset dir="${dest}/${fullnamever}" 
+        prefix="${fullnamever}" 
+>>>>>>> apache/branch-1.1
         includes="**/*.sh **/bin/ src/scripts/"
         filemode="755" />
     </zip>

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 
                       Apache Solr Release Notes
+=======
+                      Apache Solr Version 1.1.0
+                            Release Notes
+>>>>>>> apache/branch-1.1
 
 Introduction
 ------------
@@ -1980,7 +1985,11 @@ Other Changes
 
  2. Updated to Lucene 2007-05-20_00-04-53
 
+<<<<<<< HEAD
 ================== Release 1.1.0, 20061222 ==================
+=======
+================== Release 1.1.0 20061221 ==================
+>>>>>>> apache/branch-1.1
 
 Status
 ------
